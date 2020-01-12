@@ -1,0 +1,5 @@
+alias hg='history | grep'
+alias lsl="ls -lht"
+alias wp="which python"
+alias lsw="ls | wc -l"
+alias lsh="lsl | head"
