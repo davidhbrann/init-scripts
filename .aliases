@@ -3,4 +3,4 @@ alias lsl="ls -lht"
 alias wp="which python"
 alias lsw="ls | wc -l"
 alias lsh="lsl | head"
-alias minter='run -c 16 -t 12:00:00 --mem=56G -p small-compute-b --pty bash'
+alias minter='srun -c 16 -t 12:00:00 --mem=56G -p small-compute-b --pty bash'
