@@ -4,3 +4,4 @@ alias wp="which python"
 alias lsw="ls | wc -l"
 alias lsh="lsl | head"
 alias minter='srun -c 16 -t 24:00:00 --mem=56G -p small-compute-b --pty bash'
+alias ip=". get_ip"
