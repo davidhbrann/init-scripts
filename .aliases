@@ -6,4 +6,5 @@ alias lsh="lsl | head"
 alias minter='srun -c 16 -t 24:00:00 --mem=56G -p small-compute-b --pty bash'
 alias pinter='srun -c 16 -t 24:00:00 --mem=56G -p small-compute-b-preemptible --pty bash'
 alias uinter='srun -c 4 -t 24:00:00 --mem=14G -p small-utility-d --pty bash'
+alias binter="srun -c 20 -t 24:00:00 -mem=80G -p big-compute-d-preemptible --pty bash'
 alias ip=". get_ip"
