@@ -10,3 +10,4 @@ alias binter='srun -c 20 -t 24:00:00 --mem=80G -p big-compute-d-preemptible --pt
 alias ip=". get_ip"
 alias cat='bat'
 alias preview="fzf --preview 'bat --style=numbers --color=always {} | head -500'"
+alias dv="dirs -v"
