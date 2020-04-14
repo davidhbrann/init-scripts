@@ -9,3 +9,4 @@
 6. [nbcommands](https://github.com/vinayak-mehta/nbcommands/pull/20)
 7. [ripgrep](https://github.com/BurntSushi/ripgrep); `brew install ripgrep`
 8. [tsv-utils](https://github.com/eBay/tsv-utils)
+9. upgrade less for `bat` with `brew install less`
