@@ -1,0 +1,25 @@
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ ServerAliveInterval 600
+
+Host *
+ IdentityFile ~/.ssh/id_rsa
+ ForwardAgent yes
+ ForwardX11 yes
+ ForwardX11Trusted yes 
+
+Host o2.hms.harvard.edu
+ForwardX11 Yes
+ForwardX11Trusted Yes
+
+Host transfer
+HostName transfer.rc.hms.harvard.edu
+User dhb13
+Port 22
+
+Host *
+ IdentityFile ~/.ssh/google_compute_engine
+ ForwardAgent yes
+ ForwardX11 yes
+ ForwardX11Trusted yes
