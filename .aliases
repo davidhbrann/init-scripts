@@ -8,3 +8,5 @@ alias pinter='srun -c 16 -t 24:00:00 --mem=56G -p small-compute-b-preemptible --
 alias uinter='srun -c 4 -t 24:00:00 --mem=14G -p small-utility-d --pty bash'
 alias binter='srun -c 20 -t 24:00:00 --mem=80G -p big-compute-d-preemptible --pty bash'
 alias ip=". get_ip"
+alias cat='bat'
+alias preview="fzf --preview 'bat --style=numbers --color=always {} | head -500'"
