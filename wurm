@@ -1,0 +1,51 @@
+#!/bin/bash
+# my version of (interactive) srun to make some things easy on me
+# copied from https://github.com/wingillis/init-scripts/blob/master/wurm
+
+mem="4G"
+partition="interactive"
+interactive=""
+ncpu="1"
+shell="zsh"
+t="12:00:00"
+x11=""
+cmd="echo 'there does not seem to be anything here'"
+cpuToggle=""
+cpuFlag="-n"
+verbose=""
+
+
+while getopts 'im:n:s:xp:ct:v' flag; do
+  case "${flag}" in
+    i) interactive=true;;
+    m) mem="${OPTARG}";;
+    n) ncpu="${OPTARG}";;
+		x) x11=true;;
+		p) partition="${OPTARG}";;
+    s) shell="${OPTARG}";;
+    c) cpuToggle=true;;
+    t) t="${OPTARG}";;
+    v) verbose=true;;
+    *) echo "what the fuck willis what the fuck you doin to me";;
+  esac
+done
+
+if [ $cpuToggle ]; then
+  cpuFlag="-c"
+fi
+
+cmd="srun ${cpuFlag} ${ncpu} -t ${t} --mem=${mem} -p ${partition}"
+
+if [ $interactive ]; then
+  cmd="${cmd} --pty"
+fi
+
+if [ $x11 ]; then
+	cmd="${cmd} --x11"
+fi
+
+if [ $verbose ]; then
+  echo "${cmd} ${shell}"
+else
+  eval "${cmd} ${shell}"
+fi

@@ -1,0 +1,55 @@
+#!/bin/bash
+# copied from https://github.com/wingillis/init-scripts/blob/master/slorc
+
+verbose=""
+node=""
+x11=""
+forward=""
+login="login"
+user="dhb13"
+port="8989"
+
+if ! [ -z $ECOMMONS_ID ]; then
+	user=$ECOMMONS_ID
+	echo "using defined ecommons id"
+fi
+harvard="rc.hms.harvard.edu"
+shell="zsh"
+
+while getopts 'n:xfu:s:vp:' flag; do
+	case "${flag}" in
+		n) node="${OPTARG}";;
+		x) x11=true;;
+		f) forward=true;;
+		u) user="${OPTARG}";;
+		s) shell="${OPTARG}";;
+		v) verbose=true;;
+		p) port="${OPTARG}";;
+		*) echo "fuck you asshole. Wrong arguments";;
+	esac
+done
+
+cmd="ssh"
+
+if [ $x11 ];
+then
+	cmd="${cmd} -Y"
+fi
+
+if [ $forward ];
+then
+	cmd="${cmd} -L ${port}:localhost:${port}"
+fi
+
+if [ $node ];
+then
+	login="${node}.o2"
+fi
+
+cmd="${cmd} ${user}@${login}.${harvard} -t '${shell} -i'"
+
+if [ $verbose ]; then
+	echo "${cmd}"
+else
+	eval "${cmd}"
+fi
