@@ -1,0 +1,4 @@
+# combine PDFs using ghostscript
+cpdf () { 
+  gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile="$1" "${@:2}"
+}

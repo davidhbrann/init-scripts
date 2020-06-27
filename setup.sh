@@ -21,6 +21,7 @@ ln -sfv ${DIR}/.source_dotfiles ~/.source_dotfiles
 mkdir -p ~/.local/bin
 ln -sfv ${DIR}/o2/* ~/.local/bin/
 ln -sfv ${DIR}/.add_to_path ~/.add_to_path
+ln -sfv ${DIR}/.functions ~/.functions
 
 if [ $SSH ]; then
     echo "linking ssh";
