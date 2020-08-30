@@ -1,4 +1,5 @@
 # combine PDFs using ghostscript
+# from https://apple.stackexchange.com/a/370315
 cpdf () { 
   gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile="$1" "${@:2}"
 }
