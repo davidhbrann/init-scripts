@@ -12,3 +12,9 @@
 9. upgrade less for `bat` with `brew install less`
 10. `brew install pandoc`
 11. `brew install gs`
+12. Backups with [restic and b2](https://github.com/erikw/restic-systemd-automatic-backup)
+```bash
+brew install restic
+export RESTIC_REPOSITORY="b2:<b2-repo-name>"
+restic -r $RESTIC_REPOSITORY init
+```
